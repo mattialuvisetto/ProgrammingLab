@@ -104,7 +104,7 @@ print(fatt(x))
 #esercizio 8
 
 # un segmento deve avere un lunghezza inferiore alla somma degli altri due lati e maggiore della loro differenza
- 
+"""
 a = (int(input ("scegli il lato a: ")))
 b = (int(input ("scegli il lato b: ")))
 c = (int(input ("scegli il lato c: ")))
@@ -147,7 +147,7 @@ if (controllo_somma (a,b,c) +controllo_differenza (a,b,c) ==0):
     tipo_triangolo (a,b,c)
 else:
     print ("questo NON puo essere un triangolo")
-
+"""
 
 #esercizio 9
 """
