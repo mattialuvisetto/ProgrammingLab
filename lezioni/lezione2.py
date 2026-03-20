@@ -2,6 +2,19 @@
 #print("ciao")
 #print("ciao", "gigi", sep = " separatore ", end = " idk ")
 
+parola = "ciaomondomiserveunaparolamoltolunga"
+#print(parola[-1::-1]) #serve a leggere al contrario tutta la parola, utile negli esercizi coi palindromi
+
+#for i, item in enumerate(parola):
+#    print("Posizione {}: {}".format(i, item)) #enumerate praticamente mi fornisce una lista numerata, molto comodo
+
+def eleva_alla_n(numero, n=2): #se quando la chiamo non specifico il secondo valore, esso viene preso di default come 2
+    """
+    eleva un numero dato per un esponente dato o 2
+    """
+    return numero**n
+    #così abbiamo creato una docstring
+
 #esercizio 1
 """
 tot = 538
@@ -158,7 +171,7 @@ def conta_vocali():
  
     for letter in stringa:
         #for vocale in vocali:
-        if letter.lower() in vocali:
+        if letter.lower() in vocali: #controlla direttamente se appartiene agli elementi della stringa
             count += 1
  
     print(f"le vocali sono {count}")

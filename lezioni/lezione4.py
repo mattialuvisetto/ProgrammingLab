@@ -1,3 +1,38 @@
+# python è un linguaggio di programmazione orientata ad oggetti
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import random
 
 class Coin:
