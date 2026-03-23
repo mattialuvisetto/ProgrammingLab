@@ -202,3 +202,57 @@ def is_palindrome(s):
         return False
     
 print(is_palindrome(s))
+
+# esercizio 3
+# Definire una funzione che prende in input una lista A, indici i, j, e scambia il valore di
+# A[i] con A[j].
+
+def scambia_elementi(mylist,i,j):
+    if len(mylist) < j:
+        return "lista troppo corta"
+    else:
+        tmp = mylist[i]
+        mylist[i] = mylist[j]
+        mylist[j] = tmp
+    return mylist
+
+mylist = [1,2,3,4,5,6,7,8,9]
+mylist = scambia_elementi(mylist,2,11)
+print(mylist)
+
+# esercizio 4
+# Scrivere una funzione che prende in input due liste e ritorna True se le due liste hanno
+# almeno un elemento in comune
+
+mylist1 = [1,2,3,4,5,6,7]
+mylist2 = [8,9,10,11,12,13,14,1]
+
+def check_sim (mylist1, mylist2):
+    for item in mylist1:
+        if item in mylist2:
+            return True
+    return False
+
+print(check_sim(mylist1,mylist2))
+
+# esercizio 5
+# Definire una funzione che prende in input una lista di numeri interi in [0, 9] e ritorna una
+# lista di stringhe, corrispondenti ai numeri scritti in Italiano, es. [1,0,7,9,8] ->
+# ["uno","zero","sette","nove","otto"]
+
+def transform_nums (mylist):  
+    new_list = []
+
+    dict = {0 : "zero", 1 : "uno", 2 : "due", 3 : "tre", 4 : "quattro", 5 : "cinque", 6 : "sei", 7 : "sette", 8 : "otto", 9 : "nove"}
+
+    for num in mylist:
+        new_list.append(dict[num])
+    
+    return new_list
+
+# esercizio 6
+# Scrivere una funzione che prende una lista di parole e restituisce un dizionario con il
+# conteggio delle occorrenze
+
+word_list = ["ciao", "ok", "ok", "ciao", "ciao", "salve"]
+

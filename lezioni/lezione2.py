@@ -16,154 +16,133 @@ def eleva_alla_n(numero, n=2): #se quando la chiamo non specifico il secondo val
     #così abbiamo creato una docstring
 
 #esercizio 1
-"""
-tot = 538
-ore = int(tot/60)
-# ore = time//60 divisione in intero
-minuti = tot%60
-print(f"{ore}h:{minuti}min")
-"""
 
-"""
+total = 538
+hours = total // 60
+mins = total % 60
 
-"""
+print(f"{hours}h:{mins:02d}min")
 
 #esercizio 2
-"""
-num = input("scegli un numero intero: ")
-num = int(num)
-print(num**2, num**3)
-"""
+
+num = int(input("Inserisci un numero intero: "))
+
+print(f"Quadrato: {num**2}")
+print(f"Cubo: {num**3}")
 
 #esercizio 3
-"""
-num = input("scegli un numero intero: ")
-num = int(num)
-print(num % 2 == 0)
-"""
+
+num = int(input("Inserisci un numero intero: "))
+
+tipo = "pari" if num % 2 == 0 else "dispari"
+print(f"{num} è {tipo}")
+
+#in questo esercizio sfruttiamo l'operatore ternario A if cond else B
 
 #esercizio 4
-"""
-#versione 1
-word = input("choose a word: ")
-let = input("choose a letter: ")
-len = len(word)
-def number_of_times(let, word, len):
+
+word = str(input("scegli una parola: "))
+let = str(input("scegli una lettera: "))
+
+def count_times (word, let):
+
     count = 0
-    for i in range(len):
-        if let == word[i]:
-            count = count + 1
-    return count
 
-print(number_of_times(let, word, len))
-"""
+    for letter in word.lower():
 
-#funzione enumerate 
-#versione 2
-"""
-def contalettere(lettera, parola):
-    lettera = lettera.lower()
-    parola = parola.lower()
-    print("Dopo lower: {parola}")
-    k = 0
-    for item in parola:
-        print(item)
-        if(item == lettera):
-            k = k + 1
+        if letter == let.lower():
+            count += 1
 
-    for idx, item in enumerate(parola):
-        ...
-"""
+    return count 
 
+conta = count_times(word, let)
 
+print(f"la lettera '{let}' appare {conta} volte nella parola '{word}'")
+
+#python ha una funzione built-in per fare questa cosa:
+word.count(let)
 
 #esercizio 5
-"""
-x = (int (input("scegli un numero: ")))
- 
-def primo (x):    #funzione che dato un numero verifica se è primo o meno
-    for i in range(2, x):
-        if (x%(i) == 0):
-            print (f"{x} non è primo")
-            return
-    print (f"{x} è primo")
- 
-primo(x)
-"""
+
+def is_prime(n: int) -> bool:
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+
+    i = 3
+    while i * i <= n:   # evita sqrt ad ogni giro
+        if n % i == 0:
+            return False
+        i += 2          # salta i pari
+    return True
+
+num = int(input("Inserisci un numero intero positivo: "))
+
+if is_prime(num):
+    print(f"Il numero {num} è primo")
+else:
+    print(f"Il numero {num} non è primo")
 
 #esercizio 6
-"""
-print("inserire numeri, inserire 0 per fermarsi")
-sum = 0
-x = int(input())
-while x!=0:
-    sum = sum + x
-    x = int(input())
-print(sum)
-"""
+
+somma = 0
+while True:
+    num = int(input("Inserisci un numero intero (0 per terminare): "))
+    if num == 0:
+        break
+    somma += num
+
+print(f"La somma vale: {somma}")
 
 #esercizio 7
-"""
-def fatt(num: int):
-    n = 1
-    for i in range(num):
-        n *= (i + 1)
-    return n
- 
-x = int(input())
-print(fatt(x))
-"""
+
+def fatt(n: int) -> int:
+    if n < 0:
+        raise ValueError("Il fattoriale è definito solo per interi >= 0")
+    ft = 1
+    for i in range(2, n + 1):
+        ft *= i
+    return ft
+
+num = int(input("inserisci un intero: "))
+print(fatt(num))
 
 #esercizio 8
 
 # un segmento deve avere un lunghezza inferiore alla somma degli altri due lati e maggiore della loro differenza
-"""
-a = (int(input ("scegli il lato a: ")))
-b = (int(input ("scegli il lato b: ")))
-c = (int(input ("scegli il lato c: ")))
- 
-def controllo_somma (a,b,c):
-    errore=0
-    if a>b+c:
-        errore=errore+1
-    if b>a+c:
-        errore=errore+1
-    if c>b+a:
-        errore=errore+1
-    return errore
- 
- 
-def controllo_differenza (a,b,c):
-    errore=0
-    if a<b-c:
-        errore=errore+1
-    if b<a-c:
-        errore=errore+1
-    if c<b-a:
-        errore=errore+1
-    return errore
- 
-def tipo_triangolo (a,b,c):
-   
-    if (a==b or b==c or c==a):
-        if (a==b==c):
-            print ("è un triangolo equilatero")
-        else:
-            print ("è un triangolo isoscele")
-    if ((a^2 + b^2 == c^2) or (c^2 + b^2 == a^2) or (a^2 + c^2 == b^2)):
-        print ("è un triangolo rettangolo")
-    else:
-        print ("è un triangolo scaleno")
- 
-if (controllo_somma (a,b,c) +controllo_differenza (a,b,c) ==0):
-    print ("questo puo essere un triangolo")
-    tipo_triangolo (a,b,c)
-else:
-    print ("questo NON puo essere un triangolo")
-"""
 
-#esercizio 9
-"""
+def tipo_triangolo(a: int, b: int, c: int) -> str:
+    """
+    Dati tre interi a, b, c, determina se formano un triangolo e, in caso affermativo,
+    ritorna il tipo: 'equilatero', 'isoscele' o 'scaleno'. Altrimenti 'non valido'.
+    """
+    # 1) validità di base
+    if a <= 0 or b <= 0 or c <= 0:
+        return "non valido"
+
+    # 2) disuguaglianze triangolari
+    if not (a + b > c and a + c > b and b + c > a):
+        return "non valido"
+
+    # 3) classificazione
+    if a == b == c:
+        return "equilatero"
+    elif a == b or a == c or b == c:
+        return "isoscele"
+    else:
+        return "scaleno"
+    
+a = int(input("lato A: "))
+b = int(input("lato B: "))
+c = int(input("lato C: "))
+
+print(tipo_triangolo(a,b,c))
+
+# esercizio 9
+
 def conta_vocali():
     stringa = input("Stringa: ")
     vocali = "aeiou"
@@ -175,6 +154,4 @@ def conta_vocali():
             count += 1
  
     print(f"le vocali sono {count}")
- 
-conta_vocali()
-"""
+    
