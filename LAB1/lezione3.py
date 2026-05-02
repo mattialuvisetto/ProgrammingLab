@@ -165,6 +165,26 @@ for line in my_file:
         # Aggiungo alla lista dei valori questo valore
         values.append(value)
 
+#versione funzionante
+
+import statistics
+
+values = []
+
+myfile = open("data/shampoo_sales.csv", "r")
+
+for line in myfile:
+    elements = line.strip().split(",")  # rimuove \n e divide
+    if elements[0] != "Date":
+        value = float(elements[1])      # converte in numero
+        values.append(value)
+
+myfile.close()
+
+print(values)
+print(statistics.mean(values))
+
+
 #-------------- ESERCIZI --------------
 
 # esercizio (1)
